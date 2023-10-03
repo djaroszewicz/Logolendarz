@@ -10,10 +10,13 @@ builder.Services.AddMvc();
 builder.Services.AddHttpContextAccessor();
 builder.Services.AddHttpClient();
 builder.Services.AddHttpClient<IVisitService, VisitService>();
+builder.Services.AddHttpClient<IAuthService, AuthService>();
 SD.VisitAPIBase = builder.Configuration["ServicesUrls:VisitAPI"];
+SD.AuthAPIBase = builder.Configuration["ServicesUrls:AuthAPI"];
 
 builder.Services.AddScoped<IBaseService, BaseService>();
 builder.Services.AddScoped<IVisitService, VisitService>();
+builder.Services.AddScoped<IAuthService, AuthService>();
 builder.Services.AddControllersWithViews();
 
 var app = builder.Build();
